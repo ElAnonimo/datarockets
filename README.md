@@ -4,3 +4,6 @@ Welcome to Splitter an app that helps you and your crowd to split the bill and k
 
 Please install the deps first before you run it. To get it on the screen run `npm run start` then visit http://localhost:3000/.
 
+The app was built primarily for 1080 or 360 px screens. Please forgive if yours doesn't fit.
+
+The live link's here: https://datarockets-2zj1oks76-mgrbmk-emailhosting.vercel.app/.
