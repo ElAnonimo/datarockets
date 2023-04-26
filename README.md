@@ -1,0 +1,6 @@
+### Splitter
+
+Welcome to Splitter an app that helps you and your crowd to split the bill and keep the relations cohesive. It doesn't come with a manual since it's only a few inputs to deal with. Fill 'em in and see the calculus magic happening for you.
+
+Please install the deps first before you run it. To get it on the screen run `npm run start` then visit http://localhost:3000/.
+
