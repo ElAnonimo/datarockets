@@ -39,8 +39,12 @@ const App = () => {
     setBill(numericString);
   }
 
-  const handleTip = (tip: number) => {
-    setTip(tip);
+  const handleTip = (fixedTip: number) => {
+    if (tip === fixedTip) {
+      setTip(0);
+    } else {
+      setTip(fixedTip);
+    }
     setCustomTip(0);
     if (!bill) {
       setBillError(true);
@@ -92,7 +96,7 @@ const App = () => {
   const getTipAmount = () => {
     if (peopleNumber !== 0) {
       const actualTip = tip || customTip / 100;
-      const tipPerPerson = (parseFloat(bill) * actualTip / peopleNumber);
+      const tipPerPerson = parseFloat(bill) * actualTip / peopleNumber;
       return tipPerPerson.toFixed(2);
     }
     return '0.00';
@@ -101,7 +105,7 @@ const App = () => {
   const getTotalPerPerson = () => {
     if (peopleNumber !== 0) {
       const actualTip = tip || customTip / 100;
-      const totalPerPerson = (parseFloat(bill) * (1 + actualTip) / peopleNumber);
+      const totalPerPerson = parseFloat(bill) * (1 + actualTip) / peopleNumber;
       return totalPerPerson.toFixed(2);
     }
     return '0.00';
