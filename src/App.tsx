@@ -51,10 +51,10 @@ const App = () => {
   }
 
   const handleCustomTip = (evt: ChangeEvent<HTMLInputElement>) => {
-    setTip(0);
     const customTip = parseInt(evt.target.value.replace(/\D/g, ''), 10);
     // assume tip less 100 %
     if (customTip < 100) {
+      setTip(0);
       setCustomTip(customTip);
       if (!bill) {
         setBillError(true);
