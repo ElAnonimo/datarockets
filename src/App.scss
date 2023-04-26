@@ -1,0 +1,192 @@
+$greenDark: #3e6465;
+$fontWeight: 600;
+
+.App {
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  background-color: #c5e4e7;
+}
+
+.main-container {
+  position: relative;
+  display: flex;
+  border-radius: 15px;
+  background-color: #fff;
+  padding: 24px;
+  .top-logo {
+    position: absolute;
+    top: -80px;
+    left: 50%;
+    width: 5%;
+    transform: translateX(-50%);
+    text-transform: uppercase;
+    font-weight: 800;
+    color: $greenDark;
+    text-justify: inter-character;
+    text-align-last: justify;
+  }
+  .input-box {
+    margin: 15px 12px 15px 0;
+    width: 50%;
+    .input-wrapper {
+      margin-bottom: 24px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      .label-validation {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        line-height: 1;
+        margin-bottom: 5px;
+        font-weight: $fontWeight;
+        .label {
+          color: #687a7c;
+        }
+        .validation {
+          color: #c09281;
+        }
+      }
+      .chips-container {
+        display: flex;
+        flex-wrap: wrap;
+        .chip-tip {
+          width: 32%;
+          &:nth-of-type(4n) {
+            margin-left: 0;
+          }
+          &:nth-of-type(n + 4) {
+            margin-top: 2%;
+          }
+          &__selected {
+            background-color: #27c3ae;
+            color: $greenDark;
+          }
+        }
+        .custom-input {
+          width: 32%;
+          margin-left: 2%;
+          margin-top: 2%;
+          background-color: #f3f8fb;
+          padding-left: 5px;
+          padding-right: 5px;
+          border: 2px solid transparent;
+          border-radius: 5px;
+          font-weight: $fontWeight;
+          &:focus-within {
+            border: 2px solid #59a69c;
+          }
+          .MuiInputBase-input {
+            padding: 0;
+            text-align: right;
+            color: $greenDark;
+            &::placeholder {
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+  }
+  .tip-values {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 12px;
+    width: 50%;
+    border-radius: 15px;
+    background-color: $greenDark;
+    padding: 24px;
+    .total-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .amount-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+        & + .amount-wrapper {
+          margin-top: 40px;
+        }
+        .amount-text {
+          font-size: 12px;
+          line-height: 1;
+          font-weight: $fontWeight;
+          color: #fff;
+          margin-bottom: 5px;
+        }
+        .amount-subtext {
+          font-size: 10px;
+          line-height: 1;
+          font-weight: $fontWeight;
+          color: #60999d;
+        }
+        .values-total {
+          display: flex;
+          align-items: center;
+          color: #27c3ae;
+          line-height: 1;
+          font-weight: $fontWeight;
+          .currency-icon {
+            font-size: 20px;
+          }
+          .amount-total {
+            font-size: 25px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  .main-container {
+    flex-direction: column;
+    .top-logo {
+      width: 20%;
+    }
+    .input-box {
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 24px;
+      padding-left: 15px;
+      padding-right: 15px;
+      .input-wrapper {
+        .chips-container {
+          justify-content: space-between;
+          .chip-tip {
+            width: 49%;
+            margin-left: 0;
+            &:nth-of-type(4n) {
+              margin-left: unset;
+            }
+            &:nth-of-type(n + 4) {
+              margin-top: unset;
+            }
+            &:nth-of-type(n + 3) {
+              margin-top: 2%;
+            }
+          }
+          .custom-input {
+            width: 49%;
+          }
+        }
+      }
+    }
+    .tip-values {
+      width: 100%;
+      margin-left: 0;
+      .total-wrapper {
+        .amount-wrapper {
+          & + .amount-wrapper {
+            margin-top: 20px;
+            margin-bottom: 20px;
+          }
+        }
+      }
+    }
+  }
+}
