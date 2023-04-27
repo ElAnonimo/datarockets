@@ -40,17 +40,23 @@ const App = () => {
   }
 
   const handleTip = (fixedTip: number) => {
-    if (tip === fixedTip) {
-      setTip(0);
-    } else {
-      setTip(fixedTip);
-    }
     setCustomTip(0);
     if (!bill) {
       setBillError(true);
     }
     if (!peopleNumber) {
       setPeopleNumberError(true);
+    }
+    if (tip === fixedTip) {
+      setTip(0);
+      if (!bill) {
+        setBillError(false);
+      }
+      if (!peopleNumber) {
+        setPeopleNumberError(false);
+      }
+    } else {
+      setTip(fixedTip);
     }
   }
 
@@ -69,6 +75,8 @@ const App = () => {
     }
     if (!customTip) {
       setCustomTip(0);
+      setBillError(false);
+      setPeopleNumberError(false);
     }
   };
 
