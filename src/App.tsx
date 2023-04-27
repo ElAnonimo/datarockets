@@ -92,6 +92,9 @@ const App = () => {
       setPeopleNumber(0);
       setPeopleNumberError(true);
     }
+    if (!peopleNumber) {
+      setPeopleNumber(0);
+    }
   };
 
   const handleReset = () => {
@@ -105,7 +108,6 @@ const App = () => {
 
   const getTipAmount = () => {
     if (parseFloat(bill) && peopleNumber !== 0) {
-      // const actualTip = tip || customTip / 100;
       const tipPerPerson = parseFloat(bill) * actualTip / peopleNumber;
       return tipPerPerson.toFixed(2);
     }
@@ -114,7 +116,6 @@ const App = () => {
 
   const getTotalPerPerson = () => {
     if (parseFloat(bill) && peopleNumber !== 0) {
-      // const actualTip = tip || customTip / 100;
       const totalPerPerson = parseFloat(bill) * (1 + actualTip) / peopleNumber;
       return totalPerPerson.toFixed(2);
     }
