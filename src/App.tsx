@@ -23,6 +23,8 @@ const App = () => {
   const [billError, setBillError] = useState(false);
   const [peopleNumberError, setPeopleNumberError] = useState(false);
 
+  const actualTip = tip || customTip / 100;
+
   const handleBill = (evt: ChangeEvent<HTMLInputElement>) => {
     const numericInput = evt.target.value.replace(/[^\d.]/g, '');
     const hasDecimal = numericInput.includes('.');
@@ -33,7 +35,7 @@ const App = () => {
     if (numericInput) {
       setBillError(false);
     }
-    if (!numericString) {
+    if (actualTip && !numericString) {
       setBillError(true);
     }
     setBill(numericString);
@@ -86,7 +88,7 @@ const App = () => {
       setPeopleNumber(peopleNumber);
       setPeopleNumberError(false);
     }
-    if (!peopleNumber) {
+    if (actualTip && !peopleNumber) {
       setPeopleNumber(0);
       setPeopleNumberError(true);
     }
@@ -102,8 +104,8 @@ const App = () => {
   };
 
   const getTipAmount = () => {
-    if (peopleNumber !== 0) {
-      const actualTip = tip || customTip / 100;
+    if (parseFloat(bill) && peopleNumber !== 0) {
+      // const actualTip = tip || customTip / 100;
       const tipPerPerson = parseFloat(bill) * actualTip / peopleNumber;
       return tipPerPerson.toFixed(2);
     }
@@ -111,8 +113,8 @@ const App = () => {
   };
 
   const getTotalPerPerson = () => {
-    if (peopleNumber !== 0) {
-      const actualTip = tip || customTip / 100;
+    if (parseFloat(bill) && peopleNumber !== 0) {
+      // const actualTip = tip || customTip / 100;
       const totalPerPerson = parseFloat(bill) * (1 + actualTip) / peopleNumber;
       return totalPerPerson.toFixed(2);
     }
