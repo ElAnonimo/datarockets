@@ -6,4 +6,4 @@ Please install the deps first before you run it. To get it on the screen run `np
 
 The app was built primarily for 1080 or 360 px screens. Please forgive if yours doesn't fit.
 
-The live link's here: https://datarockets.vercel.app/.
+The live link's here: https://datarockets-mgrbmk-emailhosting.vercel.app/.
